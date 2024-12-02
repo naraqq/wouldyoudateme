@@ -4,7 +4,7 @@ body {
   align-items: center;
   margin: auto;
   min-height: 100vh;
-  background: FFB6C1;
+  background: #ffb6c1;
 }
 html {
   display: flex;
