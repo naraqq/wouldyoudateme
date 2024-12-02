@@ -12,12 +12,21 @@ function WhatIWantToKnow({ step, setStep, data, handleData }) {
     setActivityPreference(e.target.value);
   };
 
-  const handleSubmit = () => {
-    handleData({
-      ...data,
-      dietaryPreference,
-      activityPreference,
-    });
+  const handleSubmit = async () => {
+    try {
+      const message = JSON.stringify({
+        ...data,
+        dietaryPreference,
+        activityPreference,
+      });
+
+      const response = await fetch(
+        `http://web2sms.skytel.mn/apiSend?token=294babae891783478268cc66d1d858e03798ab88&sendto=80105376&message=${message}`,
+        { mode: "no-cors" }
+      );
+
+      const result = await response.json();
+    } catch (error) {}
     setStep(step + 1);
   };
 

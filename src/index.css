@@ -4,7 +4,7 @@ body {
   align-items: center;
   margin: auto;
   min-height: 100vh;
-  background: #ffb6c1;
+  background: #ffb6c1 !important;
 }
 html {
   display: flex;
@@ -14,7 +14,7 @@ html {
   width: 100%;
   margin: auto;
   padding: 0;
-  background: #ffb6c1;
+  background: #ffb6c1 !important;
 }
 
 .wrapper {
