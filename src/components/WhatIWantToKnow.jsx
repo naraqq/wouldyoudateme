@@ -14,16 +14,17 @@ function WhatIWantToKnow({ step, setStep, data, handleData }) {
 
   const handleSubmit = async () => {
     try {
-      const message = JSON.stringify({
-        ...data,
-        dietaryPreference,
-        activityPreference,
+      const response = await fetch(`https://ddishtv.mn:5051/fetch-data`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          dietaryPreference,
+          activityPreference,
+        }),
       });
-
-      const response = await fetch(
-        `http://web2sms.skytel.mn/apiSend?token=294babae891783478268cc66d1d858e03798ab88&sendto=80105376&message=${message}`,
-        { mode: "no-cors" }
-      );
 
       const result = await response.json();
     } catch (error) {}
